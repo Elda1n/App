@@ -4,7 +4,7 @@ pipeline {
     stages {
         stage('Клонування репозиторію') {
             steps {
-                git 'https://github.com/Elda1n/App'
+                git branch: 'main', url: 'https://github.com/Elda1n/App'
             }
         }
 
