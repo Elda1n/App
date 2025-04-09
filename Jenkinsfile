@@ -4,7 +4,7 @@ pipeline {
     stages {
         stage('Клонування репозиторію') {
             steps {
-                git 'https://github.com/ТВОЄ-КОРИСТУВАЧ-КОД/flask-jenkins-ci-example.git'
+                git 'https://github.com/Elda1n/App'
             }
         }
 
