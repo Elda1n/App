@@ -4,23 +4,19 @@ pipeline {
     stages {
         stage('Клонування репозиторію') {
             steps {
-                git branch: 'main', url: 'https://github.com/Elda1n/App'
+                git 'https://github.com/Elda1n/App'
             }
         }
 
         stage('Збірка Docker образу') {
             steps {
-                script {
-                    docker.build('flask-jenkins')
-                }
+                sh 'docker build -t flask-jenkins .'
             }
         }
 
         stage('Запуск контейнера') {
             steps {
-                script {
-                    docker.image('flask-jenkins').run('-d -p 5000:5000')
-                }
+                sh 'docker run -d -p 5001:5000 --name flask_app flask-jenkins'
             }
         }
     }
